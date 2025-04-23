@@ -178,32 +178,6 @@ Hackfest 2022:
 - vr:n uusi wifi sippasi kesken matkan, eikä vanhaa ole tarjolla, joten homma seis, pitänee
   tehdä versio ilman tunnistautumista devikäyttöä varten
 
-<script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
-<script>
-  var config = {
-    apiKey: "AIzaSyC4kQdF510aq0IKwbu0sfoZZevxJpvBpL0",
-    authDomain: "sigma-icon-411912.firebaseapp.com",
-  };
-  firebase.initializeApp(config);
-</script>
-571159907361-fr08ttrjc58khnu1uq47o6ns6b407jt2.apps.googleusercontent.com
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyC4kQdF510aq0IKwbu0sfoZZevxJpvBpL0",
-  authDomain: "sigma-icon-411912.firebaseapp.com",
-  projectId: "sigma-icon-411912",
-  storageBucket: "sigma-icon-411912.appspot.com",
-  messagingSenderId: "571159907361",
-  appId: "1:571159907361:web:13bef8e0ed0232e68fa760"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
 25.2.2024
 - edell update hävisi jonnekkin....
