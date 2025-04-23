@@ -1,0 +1,2 @@
+The reason I still install gnome is that it automates the login in public wifi newtorrks in trains, hotels, and customer visitor networks. It would be nice to understand this better and better yet, get rid of the reason to use gnome for this reason only.
+The official terminology for the public network authentication mechanism is called _captive portal_. This is the page where you agree on terms and blablabla.

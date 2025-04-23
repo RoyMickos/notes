@@ -1,0 +1,1 @@
+JS regexp has a exec metthod, that is used like so `regexp.exec(string)`. If that regex has a `g` flag, then the regexp has state, that is previous invocations of the regex affect successive invocations, leading to weird results.

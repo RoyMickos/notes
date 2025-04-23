@@ -1,0 +1,1 @@
+Comparing cloud functions from gcp to aws lambda. With respect to runtimes, gcp supports .NET core while aws only caters for C#. aws has support for Rust, while gcp has PHP. otherwise they both support go, java, python, node, ruby.

@@ -1,0 +1,2 @@
+There's even a [spec](https://www.conventionalcommits.org/en/v1.0.0/) for commit formats that specifies how commit messages are to be written to detect breaking changes etc. It is formal to allow for automatic processing of the messages.
+There is tooling to check the commit format: [commitlint](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional).

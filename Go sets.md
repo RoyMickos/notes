@@ -1,0 +1,1 @@
+In go, there are not sets. A common work-around is to use maps as a substitute, like so: `[]stirng => map[string]struct{}`. Also you should think about normalization in such cases.

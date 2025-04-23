@@ -1,0 +1,5 @@
+**This** is a general pattern used in communication and cloud systems. You have a Key Encryption Key (KEK, also know as wrapper key or customer master key) that uses public-key cryptography, and Data Encryption Key (DEK, also known as data key or envelope key) that uses symmetric cryptography.
+
+In cloud, the KEK can be stored in specialized hardware, and the idea is that all encryption uses DEKs, the KEK never leaves the secure environment. When encrypting data, KEK is used to generate the DEK, and when the ciphertext is persisted, DEK is encrypted with KEK and stored alongside the data. When data is needed, DEK is sent to the secure environment to be decrypted, after which the data itself can be decrypted. Note that this way when DEKs are rotated, old data does not need to be re-encrypted. If a KEK is rotated, only DEKs need re-encryption.
+
+Similarly. in a communication settings, a sender generates a symmetric encryption key, and uses the recipient's public key to encrypt it. Then the ciphertext is send with the encrypted encryption key to the recipient.

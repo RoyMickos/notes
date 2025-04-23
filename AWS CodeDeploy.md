@@ -1,0 +1,4 @@
+Deploys new versions on Lambda, ECS or EC2 instances. Other AWS techonologies like Beanstalk have their own deployment technologies that are alternatives to CodeDeploy. CodePipeline is where these deployment options meet, you can use a pipeline and select a suitable way to deploy.
+Note that CodePipeline can use CloudFormation in deployments, so there are overlaps there as well.
+The idea is to create a structure where at the root you have `appspec.yaml/json` and in surrounding directories you have the code and scripts to deploy. The AppSpect has to be yaml fro EC2 deployments, others are agnostic to this.
+Idea is to have a set of stages in yout deployment, and each stage has pre- and post hooks where you can define scripts to be run. For EC2 these are "real" scripts executed on the target machine, while on lambda and ECS they are lambda functions to be run.

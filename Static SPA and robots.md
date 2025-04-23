@@ -1,0 +1,3 @@
+If you have a static SPA app that does not have processing steps prior to serving content, then you should ensure, that you have a *description* meta tag for browsers to consume. Also put `data-nosnippet` on spans, sections and divs that appear on the base template which you don't want to appear in the *snippet* that google creates of your site.
+Unfortunately, there appears not to be a way to declare support for different languages. Description tag does not support the lang parameter. A sitemap can be used to do this, but then your urls should have the language as part of the path to indicate different languages.
+Ideas: create /fi /en /sv pages, and provide a robots.txt using canonical ui refrences if possible.

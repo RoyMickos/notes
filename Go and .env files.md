@@ -1,0 +1,1 @@
+It is best to read environment variables directly using `os.Getenv` so the code is same for production and  developmetn. `.env` files can be used in development to set values to be read by the code in development, in production the env variables are defined by deployment tools or managed otherwise.

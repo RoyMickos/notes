@@ -1,0 +1,22 @@
+This is a retrospective of problem solving. My assignment was to update typescript version on our monorepo project. The monorepo had several apps, services and libraries using typescript. The update in question was from version 4.8.something to 5.7.2. The update required that some libraries that were using typescript needed to be updated as the compiler now complained about new things. Amongst the libraries were babel, eslint, ts-jest, ts-node, things of that nature.
+There were a lot of small routine fixes that needed to be made to the code, so I hammered them down and sent them to the CI for verification. The focus at this point was at compile-time issues, not runtime issues. Before too long I progressed into the test code.
+
+To my surprise, I ran into a runtime issue with one of the services, which complained that it could not resolve a dependency injection for class `ModuleRef`. Now moduleref is a nest internal provider, so it was very confusing to see this error.
+
+First I tried chatgpt to get suggestions. Bar for the obvious, it said that cyclic dependencies could cause this problem. Googling using various keywords got some hits but none of them were a direct bullseye.
+I reduced the service's `app.module.ts` to just one submodule (for health checks) and managed to replicate the issue with it. Then I enabled `DEGUB_NESTJS` flag and started the app locally on my machine to get nesjs debug logs from the phase when the DI framework was working to inject all deps to modules. A lot of permutations were tried but they did not yield any results.
+
+Finally one stackoverflow answer provided a clue: this might be due to code having multiple  instances of `nestjs/core` module. I first tried to create a peer dependency since I had managed to resolve a similar issue with `nestjs/config` by using it. That is, the library component listed these as peer deps expeting the service to provide the final instance of the dependency. This also led me astray, as I got a gut feeling the error might be related to this change that I had previously made, leading to numerous permutations to be tried in attempt to resolve.
+
+Finally, I scanned through the project's `node_modules` folders, and found out that my troublesome service was the only one, who had nestjs componets in it's node_modules. All others had had theirs hoisted to the root level. At this point it became clear that my issues with nesjs/config were due to the same issue. Then, the task was to find out where the error got introduced.
+
+`git bisect` was an invaluable tool here, and I managed to trace down the issue to a commit where eslint dependencies and babel were bumped. It was not obvious why this would cause this behaviour, so I resorted to investigating each package.json entry for my troublesome component. Finally, I managed to isolate one component which was different on this component compared to others: 
+```
+"reflect-metadata": "^0.1.13",
+```
+This version number had a caret (^), whereas elsewhere it was without the caret. As nestjs uses the metadata to store information for most of it's decorators, this caused yarn to deduce that this difference in dependencies meant that the component needed different instances of the `nestjs` packages. Removing the caret solved the issue.
+
+All in all, this took several working days to resolve. So what could I have done to speed things up?
+- Firstly, we had recently switched to a new yarn version. I was a little bit in the dark about all the effects it had. I knew that we had to make a lot of changes to the package.json files, bur I had missed that the root workings of yarn were still the same. This lead me to use the peerDependencies too hastily, instead of investigating the hoisting when the first funny errors came up with nestjs/config
+- For some reason, googling and chatgpt did not produce the one most valuable chapter in the nestjs docs. which exactly described the issue I was facing. I should have taken more time to read through the chapter, instead of just quickly glancing over it in search of the "relevant" information.
+- Chatgpt was helpful, but it also lead me astray with the cyclic dependency thing. I should have realized earlier that yarn only processes package.json files and does not know about any cyclic dependencies in the code. But in that case, I should have investigated the hoisting also earlier.

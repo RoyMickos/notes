@@ -1,0 +1,6 @@
+A list of all entites that have a say when making an AWS request.
+1.  VPC endpoint policy: is there a network connection befween requestor and provider?
+2.  AWS organisational policies: If you have an organisation, with organisation units and accounts in them, you can attach policies on what can be done at various levels in this hierarchy.
+3. IAM Principal policies and boundaries. Boundaries limit the set of services a given individual can define in an IAM policy, and principal policies define what can be done by a role.
+4. Session policy/token: a policy that can be attached to a session, having it's own policy. This is not stored anywhere, it is created for the session and sent along the requuests, from AWS perspective it is stateless. Used in some very complex cases where the policy space of aws is exhausted. Also, it allows for quick debugging of iam policies using command line as you do not need to wait for replication to happen
+5. Resource policy: if the above grants access to a resouce, the final step is to inspect the policy at the resouce in question: does it allow the request?
