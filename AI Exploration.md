@@ -21,6 +21,13 @@ Error: listen tcp 0.0.0.0:11434: bind: address already in use
 ## Nix and python
 There seems to be controversy in the python setup in nix, as python packages are somehow wrapped to be nix packages. You can install pyhton packages as per the nix flake manifest, or have the nix [flake setup a virtual environment](https://github.com/dtgoitia/nix-python) or use a separate nix-based [devenv](https://devenv.sh/basics/) tool. Be careful here not to drop in a rabbit hole. Anyway, plan is to use a nix flake to set up the environment for the development, with maybe jupyter for specific notes.
 
+## Neovim CodeCompanion and VectorCode
+CodeCompanion is a LLM tool for neovim, like Avante. It can use a VectorCode utility, which builds a RAG of your project using ChromaDB.
+I've installed VectorCode CLI using `pipx` and installed chromadb:0.6.3 via docker as instructed by VectorCode. You are using VectorCode CLI to build a database of your project, then a plugin allows you to utilize the database in LLM operations via CodeCompanion.
+[CodeCompanion](https://codecompanion.olimorris.dev/)
+[VecttorCode](https://github.com/Davidyz/VectorCode/tree/main?tab=readme-ov-file#installation)
+[ChromaDB](https://docs.trychroma.com/docs/overview/introduction)
+
 ## Where am I
 Managed to use a nix flake. Now, still need to study how zsh would work with this. Anyway, managed to get with the tutorial to the first step where a python call for openai was  made using the python shell.
 Played around with generating code using various models. ChatGPT by far best, but it has the advantage of having a lot more context as I\ve asked several questions about dynamodb. Phi3:mini seemed to generate promising code, but it started hallucinating.
