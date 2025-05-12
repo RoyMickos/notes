@@ -72,6 +72,13 @@ final: prev: {
 ```
 Here, `prev` is the original nixpkgs, where you replace bat with the version stated. In this case we can use actual version by fetching the source from github and having the source compiled using normal rules. If the rules have changed then this might not work. You need to run the build once with the dummy sha to get the actual sha, then replace the dummy with actual.
 
+## Darwin-nix
+
+#### Updating packages
+```nix
+
+```
+
 ## Flakes
 It looks like flakes could be a good option for managing dev environments, although toolbox could also be used. However, a nix flake also documents what the environment comprises of, so it has an edge. There is some line drawing to be thought of as developer tooling is not part of the flake. There is currently one pilot project for using flake based dev environment, the ai comde project. It uses python, and the flake sets up python and a venv. At this point it looks like using programming language tools for managing libs and packages of the project is in general preferred to using nix for it.
 
