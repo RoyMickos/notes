@@ -1,0 +1,3 @@
+CodeCompanion is an AI tool for neovim. It has an option to include data about your project using RAG methodology in your prompts. The way this is accomplished is by using `vectorcode`, a tool that builds entries in a vector database about your code. The vector database in use is `chroma`.
+The way this is setup atm is that you need to start a chroma server, so that it stores the data in the same directory where your code is: `chroma run --path .`. After that you may use vectorcode to process your repo and update the chroma instance by running `vectorcode vectorize <glob>`.
+This is a bit clumsy and probably needs to be refined once we get more mileage.
