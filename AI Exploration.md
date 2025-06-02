@@ -28,6 +28,10 @@ I've installed VectorCode CLI using `pipx` and installed chromadb:0.6.3 via dock
 [VecttorCode](https://github.com/Davidyz/VectorCode/tree/main?tab=readme-ov-file#installation)
 [ChromaDB](https://docs.trychroma.com/docs/overview/introduction)
 
+## RealPython RAG course
+Seems to have beef. Created a Neo4J graph database account in the [web](https://neo4j.com/). Google credentials. Maybe study graph databases more?
+
+
 ## Where am I
 Managed to use a nix flake. Now, still need to study how zsh would work with this. Anyway, managed to get with the tutorial to the first step where a python call for openai was  made using the python shell.
 Played around with generating code using various models. ChatGPT by far best, but it has the advantage of having a lot more context as I\ve asked several questions about dynamodb. Phi3:mini seemed to generate promising code, but it started hallucinating.

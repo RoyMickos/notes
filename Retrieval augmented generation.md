@@ -1,0 +1,1 @@
+Looks like there are several ways to go about this. You can use multiple databases (graph vs vector), work locally using python and APIs or go big with cloud providers. The key seems to be handling the source data in these databases to retrieve the relevant documents.
