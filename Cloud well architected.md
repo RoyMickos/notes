@@ -3,17 +3,18 @@ Tags:
 
 ---
 # Cloud well architected
-
+Both AWS and GCP have roughly equal core pillars:
+1. Operational excellence
+2. Security (GCP adds privacy and compliance)
+3. Reliability
+4. Performance efficiency
+5. Cost optimization
+6. Sustainability
 ## AWS
 
-AWS has a "well-architected" concept that brings best practices in the cloud. Basically automate and test everything. They have
-a bunch of "Lens" whitepapers that go deeper in to problem verticals. They also have a well-architected tool that can be used,
-and their partner network provide reviews of the well-architected concept.
+AWS has a "well-architected" concept that brings best practices in the cloud. Basically automate and test everything. They have a bunch of "Lens" whitepapers that go deeper in to problem verticals. They also have a well-architected tool that can be used, and their partner network provide reviews of the well-architected concept.
 
-Some of these have been observed in our YTK project, where we have run into some surprising problems when our design did not
-cope with production volumes. So measurement and metrics allow for fact-based descisions and improvements. We have a fairly good
-baseline automation, but it has not been maintained nor polished after it's initial conception. So we need to complete the
-"innovation circle": build, measure, adapt.
+Some of these have been observed in our YTK project, where we have run into some surprising problems when our design did not cope with production volumes. So measurement and metrics allow for fact-based descisions and improvements. We have a fairly good baseline automation, but it has not been maintained nor polished after it's initial conception. So we need to complete the "innovation circle": build, measure, adapt.
 
 The priciples are applicable to other providers as well.
 
@@ -50,6 +51,7 @@ Data lifecycle
 
 ---
 ## References
-1. (AWS well architected)[https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&wa-lens-whitepapers.sort-order=desc&wa-guidance-whitepapers.sort-by=item.additionalFields.sortDate&wa-guidance-whitepapers.sort-order=desc]
-2. (Using multiple accounts in AWS)[https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html]
-3. (AWS architecture center)[https://aws.amazon.com/architecture/?cards-all.sort-by=item.additionalFields.sortDate&cards-all.sort-order=desc&awsf.content-type=*all&awsf.methodology=*all&awsf.tech-category=*all&awsf.industries=*all&awsf.business-category=*all]
+1. [AWS well architected](https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&wa-lens-whitepapers.sort-order=desc&wa-guidance-whitepapers.sort-by=item.additionalFields.sortDate&wa-guidance-whitepapers.sort-order=desc)
+2. [Using multiple accounts in AWS](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html)
+3. [AWS architecture center](https://aws.amazon.com/architecture/?cards-all.sort-by=item.additionalFields.sortDate&cards-all.sort-order=desc&awsf.content-type=*all&awsf.methodology=*all&awsf.tech-category=*all&awsf.industries=*all&awsf.business-category=*all)
+4. [Google well archietected](https://cloud.google.com/architecture/framework)

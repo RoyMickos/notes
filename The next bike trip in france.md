@@ -1,0 +1,4 @@
+Places to visit:
+- statue of Vercingetorix in Alise-Sainte-Reine. This is surprisingly up north, close to the city of Dijon
+- Pont van Gogh: the bridge that Vincent van Gogh painted, which is, of course, close to Arles in the Rhone delta in the south, west of Marseille, south of Avignon
+Bike spots in long-distance trains are hard to come by as they sell out very early. Local trains have better capacity but the travel is slower. In France, it depends on the region how bikes can be transported. Need to check whether there are bike rental options, where you can return the bike to a different location where you rented it.
