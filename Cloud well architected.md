@@ -10,6 +10,7 @@ Both AWS and GCP have roughly equal core pillars:
 4. Performance efficiency
 5. Cost optimization
 6. Sustainability
+
 ## AWS
 
 AWS has a "well-architected" concept that brings best practices in the cloud. Basically automate and test everything. They have a bunch of "Lens" whitepapers that go deeper in to problem verticals. They also have a well-architected tool that can be used, and their partner network provide reviews of the well-architected concept.
@@ -48,6 +49,107 @@ Data lifecycle
 4. explore/visualize
   - exploring: cloud datalab (jupyter notebooks)
   - visualizing: big query BI, cloud data studio, looker
+
+Idea for the next sections is to be a kind of "index" to all cloud stuff through the well-architected perspective. Idea is to use this framework as a reference for why some tool or technology is important.
+# Operational excellence
+### Data-based decisions and automation
+| Google              | AWS |
+| ------------------- | --- |
+| Cloud Monitoring    |     |
+| Cloud observability |     |
+| Big Query           |     |
+### React to incidents and problems
+| Google              | AWS |
+| ------------------- | --- |
+| Cloud Run           |     |
+| Cloud Run Functions |     |
+| EventArc            |     |
+### Use your data to improve and innovate
+In addition to reacting based on your data, you can also use it for longer-term improvements. These don't have any cloud tools associated with them, they are rather policies, conventions and cultural aspects:
+- Continuous learning
+- Keep up-to date on cloud offerings
+- Experimentation, blameless culture
+- Retrospectives
+- Feedback
+### Manage and optimize resources / cost
+| Google           | AWS |
+| ---------------- | --- |
+| Cloud Monitoring |     |
+| Recommender      |     |
+| Cloud Billing    |     |
+### Manage change & automate
+| Google       | AWS       |
+| ------------ | --------- |
+| Terraform    | Terraform |
+| Cloud Build  |           |
+| Cloud Deploy |           |
+| Puppet       | Puppet    |
+| Chef         | Chef      |
+| Ansible      | Ansible   |
+# Security, privacy and compliance
+[Summary of GCP tools related to this](https://cloud.google.com/architecture/framework/security#focus_areas_of_cloud_security)
+[The cloud controls matrix](https://cloudsecurityalliance.org/research/cloud-controls-matrix/#)
+[OWASP Application threat modeling](https://owasp.org/www-community/Threat_Modeling_Process)
+Secure your data in transit and in storage. Use indentity and access management to control access to data. Use secure infrastructure. Monitor security data like metrics and logs and establish security responses. Add Audit and vpc logs to your logging. Design security in your apps.
+### Security by design
+Tools:
+Snyk
+Github Dependabot
+
+| Google                     | AWS |
+| -------------------------- | --- |
+| Assured oss (Python, Java) |     |
+#### VMs
+| Google            | AWS |
+| ----------------- | --- |
+| OS Login          |     |
+| Shielded VM       |     |
+| Confidential VM   |     |
+| Virtual TPM       |     |
+| Curated OS Images |     |
+#### Containers
+| Google                 | AWS |
+| ---------------------- | --- |
+| Container optimized OS |     |
+| Distroless images      |     |
+#### Data encryption
+| Google                      | AWS |
+| --------------------------- | --- |
+| Cloud KMS                   |     |
+| Cloud Interconnect (MACSec) |     |
+| Cloud VPN (IPSec)           |     |
+| APIGee TLS/mTLS             |     |
+| Cloud Service Mesh          |     |
+### Zero Trust
+#### Network
+
+| Google                       | AWS |
+| ---------------------------- | --- |
+| Identity aware proxy         |     |
+| Chrome enterprise            |     |
+| Cloud interconnect           |     |
+| Cloud VPN                    |     |
+| Private service connect      |     |
+| Cloud Service Mesh Egress GW |     |
+| Shared VPC                   |     |
+| VPC Service Controls         |     |
+| Cloud Armor                  |     |
+#### Explicit verification
+| Google                              | AWS     |
+| ----------------------------------- | ------- |
+| Cloud Identity                      | Cognito |
+| Workload Identity Federation        |         |
+| Google Security Operations (SecOps) |         |
+| Security Command Center             |         |
+### Monitor your network
+| Google                                  | AWS |
+| --------------------------------------- | --- |
+| Network Analyzer                        |     |
+| Web Security Scanner                    |     |
+| Cloud Intrusion Detection Service (IDS) |     |
+| Cloud NextGen Firewall NGFW             |     |
+| Google SecOps                           |     |
+
 
 ---
 ## References
