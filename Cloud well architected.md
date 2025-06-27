@@ -149,6 +149,70 @@ Github Dependabot
 | Cloud Intrusion Detection Service (IDS) |     |
 | Cloud NextGen Firewall NGFW             |     |
 | Google SecOps                           |     |
+#### Shift-left security
+"Pushing security into development process"
+Guardrails for your organizational setup on cloud. These are resource/network constraits you can set in your cloud organisation, that prevent accidental misconfiguration.
+
+| Google                                | AWS             |
+| ------------------------------------- | --------------- |
+| Resource Manager                      |                 |
+| VPC Service Controls                  |                 |
+| Privileged Access Manager             |                 |
+| 8<---8<---8<---8<---                  | 8<---8<---8<--- |
+| Cloud Build                           |                 |
+| Cloud Deploy                          |                 |
+| Binary Authorization                  |                 |
+| Web Security Scanner                  |                 |
+| Artifact Registry / Artifact analyzer |                 |
+### Pre-emptive cyber defence
+| Google                      | AWS |
+| --------------------------- | --- |
+| Google SecOps               |     |
+| Security Command Center     |     |
+| Network Intelligence Center |     |
+### Secure AI
+| Google              | AWS |
+| ------------------- | --- |
+| Vertex AI           |     |
+| BigQuery ML         |     |
+| Cloud Logging       |     |
+| Cloud Observability |     |
+### AI in security
+| Google                     | AWS |
+| -------------------------- | --- |
+| Google Threat Intelligence |     |
+| Security Command Center    |     |
+| Google SecOps              |     |
+### Compliance
+| Google                    | AWS |
+| ------------------------- | --- |
+| Assured Workloads         |     |
+| Access Transparency       |     |
+| Key Access Justifications |     |
+| Google Distributed Cloud  |     |
+| Sensitive Data Protection |     |
+## Reliability
+Measurement: measure as close to the user as possible, simply because these are the metrics that matter most. Ideally on the browser (user consent required). Sentry or similar for in-browser tracking. Cloud solutions work inside the cloud domain.
+
+| Google                      | AWS |
+| --------------------------- | --- |
+| Cloud trace                 |     |
+| Personalized Service Health |     |
+Guidelines for regional/zonal divisions:
+
+| Reliability target | Downtime/Month    | Deployment strategy                    |
+| ------------------ | ----------------- | -------------------------------------- |
+| < 99.9%            | ~72 h             | Single-zone, dev and testing workloads |
+| 99.95 - 99.99 %    | ~ 45 min          | Multi-zone                             |
+| > 99.99 %          | ~ 4 min (5 nines) | Multi-region                           |
+Databases:
+
+| Reliability target | Database strategy                             |
+| ------------------ | --------------------------------------------- |
+| < 99.95%           | SQL (note this does not factor in migrations) |
+| > 99.99%           | SQL with High Availability                    |
+| > 99.999%          | NoSQL or CloudSpanner                         |
+	
 
 
 ---
