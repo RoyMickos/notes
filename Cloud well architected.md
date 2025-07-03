@@ -78,14 +78,15 @@ In addition to reacting based on your data, you can also use it for longer-term 
 | Recommender      |     |
 | Cloud Billing    |     |
 ### Manage change & automate
-| Google       | AWS       |
-| ------------ | --------- |
-| Terraform    | Terraform |
-| Cloud Build  |           |
-| Cloud Deploy |           |
-| Puppet       | Puppet    |
-| Chef         | Chef      |
-| Ansible      | Ansible   |
+| Google            | AWS       |
+| ----------------- | --------- |
+| Terraform         | Terraform |
+| Cloud Build       |           |
+| Cloud Deploy      |           |
+| Puppet            | Puppet    |
+| Chef              | Chef      |
+| Ansible           | Ansible   |
+| Artifact Registry |           |
 # Security, privacy and compliance
 [Summary of GCP tools related to this](https://cloud.google.com/architecture/framework/security#focus_areas_of_cloud_security)
 [The cloud controls matrix](https://cloudsecurityalliance.org/research/cloud-controls-matrix/#)
@@ -212,7 +213,20 @@ Databases:
 | < 99.95%           | SQL (note this does not factor in migrations) |
 | > 99.99%           | SQL with High Availability                    |
 | > 99.999%          | NoSQL or CloudSpanner                         |
-	
+## Costs
+
+| Google                       | AWS |
+| ---------------------------- | --- |
+| Billing dashboards (reports) |     |
+| BigQuery                     |     |
+|                              |     |
+
+## AI
+A bit of background learning required to understand the material, like data artifacts and features.
+
+
+## Backlog
+- [ ] Re-architecting white paper
 
 
 ---
@@ -221,3 +235,4 @@ Databases:
 2. [Using multiple accounts in AWS](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html)
 3. [AWS architecture center](https://aws.amazon.com/architecture/?cards-all.sort-by=item.additionalFields.sortDate&cards-all.sort-order=desc&awsf.content-type=*all&awsf.methodology=*all&awsf.tech-category=*all&awsf.industries=*all&awsf.business-category=*all)
 4. [Google well archietected](https://cloud.google.com/architecture/framework)
+5. [Re-architecting for cloud (google)](https://cloud.google.com/resources/rearchitecting-to-cloud-native?hl=en)
