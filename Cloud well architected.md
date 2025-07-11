@@ -92,6 +92,7 @@ In addition to reacting based on your data, you can also use it for longer-term 
 [The cloud controls matrix](https://cloudsecurityalliance.org/research/cloud-controls-matrix/#)
 [OWASP Application threat modeling](https://owasp.org/www-community/Threat_Modeling_Process)
 Secure your data in transit and in storage. Use indentity and access management to control access to data. Use secure infrastructure. Monitor security data like metrics and logs and establish security responses. Add Audit and vpc logs to your logging. Design security in your apps.
+A way to view the security flow: [[Overall security view of an app.excalidraw]]
 ### Security by design
 Tools:
 Snyk
@@ -223,7 +224,27 @@ Databases:
 
 ## AI
 A bit of background learning required to understand the material, like data artifacts and features.
+**Features**: this is a thing for traditional ML training. Think linear regression style. Each feature is a measurement or input given to the model, and one (or perhaps more) feature is then predicted based on the rest. In traditional ML, data engineers work with the training data to create features that best correlate with the features to be predicted. Any reference to features means that traditional ML is used.
+**LLM fine tuning**: LLM fine tuning is implicit based on textual input. You use "shots" or examples of input-output pairs that you use in fine-tuning the model.
 
+| Google                     | AWS | Notes                                                          |
+| -------------------------- | --- | -------------------------------------------------------------- |
+| Vertex AI workbench        |     | Jupyter -based AI exploration tool                             |
+| Vertex AI Studio           |     | Develop prompts                                                |
+| Dataflow                   |     | Data collection                                                |
+| Dataproc                   |     | Data collection                                                |
+| BigQuery                   |     | Data storage                                                   |
+| BigQuery DataFrames        |     | Synthetic data generation                                      |
+| TensorFlow Data Validation |     | Data quality scan in BigQuery                                  |
+| Vertex AI Custom Training  |     | Training traditional ML models                                 |
+| Vertex AI Model Garden     |     | Pre-trained ML models                                          |
+| Vertex AI Feature Store    |     | Versioning for feature data                                    |
+| Vertex AI Model Registry   |     | Track and manage trained models                                |
+| Vertex AI Model Monitoring |     | Track model data drift and production anomalities in ML models |
+| Vertex AI Pipelines        |     | ML lifecycle automation ("CI")                                 |
+| Vertex AI Experiments      |     | Compare new models to old ones                                 |
+| Vertex AI Model evaluation |     | Assess LLM model performance                                   |
+AI security flow image: [[Overview of LLM app security.excalidraw]]
 
 ## Backlog
 - [ ] Re-architecting white paper
