@@ -246,6 +246,12 @@ A bit of background learning required to understand the material, like data arti
 | Vertex AI Model evaluation |     | Assess LLM model performance                                   |
 AI security flow image: [[Overview of LLM app security.excalidraw]]
 
+## Multi-cloud
+
+| Google                   | AWS |
+| ------------------------ | --- |
+| Cross-cloud interconnect |     |
+
 ## Backlog
 - [ ] Re-architecting white paper
 
