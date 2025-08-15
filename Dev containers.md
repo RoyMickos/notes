@@ -7,6 +7,11 @@ Now the backend seems to be in order. What still needs to be done is to do the s
 - Need separate `.env` files for these as well
 
 After this, the same jazz for the front-end
+
+The `node` base image defines a user called `node` which is used in images based on it. Even if I set the user to be different before running `npm install` the `node_modules` still gets owned by `node` user. This, in turn, causes access denied errors in the images. Apparently this happens because all `npm` commands get run as `node` user. Looks like to get around this, you should use a standard debian bookwork image, install node manually inside it, then continue as per usual.
+
+Another curveball found: when using `lima` then lima mounts your home as read-only inside the docker vm. You need to explicitly mark it as writable. As lima mounts you home directory, you would need to mount your entire home directory as writable. Another solution is to create a new limavm resource for this.
+
 Key takeaways so far: both python and node libraries contain plaftorm-dependant components, so you need to make sure that `.venv` and `node-modules` are separate for both environments. You still need those on the host for editing the files, while the execution environment needs it own separate resources if your host is a mac and the container is always linux. And you need to make sure those are kept in sync, one idea is to abstract package operations as make targets.
 Also there's the devshell container, where you can install specific software like the `gemini-cli` that you want to limit what it can see and do on your computer. The "production" and "devshell" machines may be able to share a common volume for the `node-modules` but that remains to be seen.
 
