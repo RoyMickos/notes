@@ -17,7 +17,8 @@ AWS has a "well-architected" concept that brings best practices in the cloud. Ba
 
 Some of these have been observed in our YTK project, where we have run into some surprising problems when our design did not cope with production volumes. So measurement and metrics allow for fact-based descisions and improvements. We have a fairly good baseline automation, but it has not been maintained nor polished after it's initial conception. So we need to complete the "innovation circle": build, measure, adapt.
 
-The priciples are applicable to other providers as well.
+The principles are applicable to other providers as well.
+[Last week in AWS](https://www.lastweekinaws.com/)
 
 ## GCP
 
