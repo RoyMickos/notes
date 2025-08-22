@@ -1,3 +1,8 @@
+---
+tags:
+  - "#ai"
+---
+
 Need to dive deeper into AI, probably doing a certificate in 2025. Here are some LLM recommendations: 
 FreeCodeCamp Tutorial
 A comprehensive course by a LangChain engineer that walks you through implementing a RAG system from scratch. It covers indexing, retrieval, generation, and advanced topics like Adaptive RAG and query routing. This is a great resource for beginners and advanced users alike. The full tutorial is available on FreeCodeCamp's YouTube channel.
