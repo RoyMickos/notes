@@ -122,7 +122,7 @@ Github Dependabot
 | Cloud Interconnect (MACSec) |     |
 | Cloud VPN (IPSec)           |     |
 | APIGee TLS/mTLS             |     |
-| Cloud Service Mesh          |     |
+| [[Cloud Service Mesh]]      |     |
 ### Zero Trust
 #### Network
 
@@ -132,9 +132,9 @@ Github Dependabot
 | Chrome enterprise            |     |
 | Cloud interconnect           |     |
 | Cloud VPN                    |     |
-| Private service connect      |     |
+| [[Private service connect]]  |     |
 | Cloud Service Mesh Egress GW |     |
-| Shared VPC                   |     |
+| [[Shared VPC]]               |     |
 | VPC Service Controls         |     |
 | Cloud Armor                  |     |
 #### Explicit verification
@@ -222,6 +222,11 @@ Databases:
 | Billing dashboards (reports) |     |
 | BigQuery                     |     |
 |                              |     |
+### Management
+
+| Google           | AWS |
+| ---------------- | --- |
+| Resource Manager |     |
 
 ## AI
 A bit of background learning required to understand the material, like data artifacts and features.
@@ -252,9 +257,22 @@ AI security flow image: [[Overview of LLM app security.excalidraw]]
 | Google                   | AWS |
 | ------------------------ | --- |
 | Cross-cloud interconnect |     |
+# Networks
+
+Google uses software-defined distributed networking, where each VPN hosts *firewall rules*, *routes* for outgoing and *forwarding rules* for incoming traffic.
+
+Firewall rules can be managed in multiple ways
+- Inside the VPN, a rule can be tied to a service account. If a certain service account runs a workload on a VM, then a firewall rule to allow it's traffic is automatically applied
+- A firewall rule can be tied to a network tag assigned to a VM
+- individual firewall rules can be grouped into policies
+- The organisational hierarchy can be leveraged to apply *hierarchial* firewall rules, wher lower levels inherit rules from above levels. Also, lower levels cannot override rules from above levels.
 
 ## Backlog
 - [ ] Re-architecting white paper
+- [ ] Cloud NAT vs Secure Web Proxy
+- [ ] Load balancers, Cloud Router, NAT
+- [ ] CDN, Cloud Armor, Cloud Endpoints, Cloud Service Mesh, IAP, Cloud Forwarding
+- [ ] Apigee, Gemini Cloud assist, Gemini in security
 
 
 ---

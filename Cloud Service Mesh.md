@@ -1,0 +1,2 @@
+The new name for former Anthos service mesh and Traffic director. Anthos is the multi-cloud offering from google, and traffic director was providing mesh functionality to plain VM workloads.
+Traffic director control plane is the base for the new offering. It is based on the base istio [[Service mesh]]. Cloud service mesh can be used with Google Kubernetes Engine workloads, VM workloads and Cloud Run workloads.

@@ -1,0 +1,4 @@
+Lets a *service producer* provide services to a *service consumer*. The idea is that the producer and consumer can be connected directly between their respective private VPCs without network peering. NAT is used to remove the need for IP address synchronization between producers and consumers.
+The producer has a **service attachment** which is a load balancer. This is receives the traffic from clients and distributes the load to producer workloads. The connection can be one way (API) or two-way (webhooks) in which case the attachment is augmented with and **interface**.
+Clients connect using either *endpoints*, which are forwarding rules from their network to the producer's attachment, or *backends* which appear as load balancer and allows more control.
+A producer's service attachment can serve several clients.
