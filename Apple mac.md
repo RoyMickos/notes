@@ -12,3 +12,22 @@ Apparently, alacritty on mac does not connect to the ssh agent, so you need to m
 eval $(ssh-agent)
 ssh-add --apple-use-keychain -K ~/.ssh/id_ed25519_work
 ```
+You also need to configure ssh to enable multiple identities like this:
+```text
+# Personal key
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+
+# Work key
+Host github.com-work
+  AddKeysToAgent yes
+  UseKeychain yes
+  HostName github.com
+  IdentityFile ~/.ssh/id_ed25519_work
+  User git
+  IdentitiesOnly yes
+```
+And then ensure that you modify work repos to use `gihub.com-work` ending.
