@@ -11,6 +11,7 @@ Both AWS and GCP have roughly equal core pillars:
 5. Cost optimization
 6. Sustainability
 
+[Updating status](https://reaktor.slack.com/archives/CD1AP2SAX/p1759214173292779)
 ## AWS
 
 AWS has a "well-architected" concept that brings best practices in the cloud. Basically automate and test everything. They have a bunch of "Lens" whitepapers that go deeper in to problem verticals. They also have a well-architected tool that can be used, and their partner network provide reviews of the well-architected concept.
