@@ -127,17 +127,17 @@ Github Dependabot
 ### Zero Trust
 #### Network
 
-| Google                       | AWS |
-| ---------------------------- | --- |
-| Identity aware proxy         |     |
-| Chrome enterprise            |     |
-| Cloud interconnect           |     |
-| Cloud VPN                    |     |
-| [[Private service connect]]  |     |
-| Cloud Service Mesh Egress GW |     |
-| [[Shared VPC]]               |     |
-| VPC Service Controls         |     |
-| Cloud Armor                  |     |
+| Google                                        | AWS |
+| --------------------------------------------- | --- |
+| [[Secure web proxy and Identity aware proxy]] |     |
+| Chrome enterprise                             |     |
+| Cloud interconnect                            |     |
+| Cloud VPN                                     |     |
+| [[Private service connect]]                   |     |
+| Cloud Service Mesh Egress GW                  |     |
+| [[Shared VPC]]                                |     |
+| VPC Service Controls                          |     |
+| Cloud Armor                                   |     |
 #### Explicit verification
 | Google                              | AWS     |
 | ----------------------------------- | ------- |
