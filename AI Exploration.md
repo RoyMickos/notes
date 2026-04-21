@@ -36,6 +36,8 @@ I've installed VectorCode CLI using `pipx` and installed chromadb:0.6.3 via dock
 ## RealPython RAG course
 Seems to have beef. Created a Neo4J graph database account in the [web](https://neo4j.com/). Google credentials. Maybe study graph databases more?
 
+##  External resources
+[Tekoälyagenttien kyberturvallisuus](https://traficom.fi/sites/default/files/media/publication/TRAFICOM_Teko%C3%A4lyagenttien_kyberturvallisuus.pdf)
 
 ## Where am I
 Managed to use a nix flake. Now, still need to study how zsh would work with this. Anyway, managed to get with the tutorial to the first step where a python call for openai was  made using the python shell.
