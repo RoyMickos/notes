@@ -1,0 +1,3 @@
+## Week 4 excercise
+- force the model to call your tool that returns data. Define an output schema for LLm to extract key points from the data, Then feed test documents to llm and observe what it returns, especially in cases where your input has missing datapieces.
+- Now, someting fun for data, what could that be? Bikes, trains, ntsb reports...
