@@ -1,0 +1,1 @@
+Ensure that [headroom](https://github.com/headroomlabs-ai/headroom) is installed. Used `uv tool install --python 3.13 "headroom-ai[all]"` initially. `start_opencode.sh` currently wraps inside headroom.
