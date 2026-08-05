@@ -11,7 +11,6 @@
 | Sadeshortsit                           |                  |                  |               |             |     |
 | Sadetakki                              |                  |                  |               |             |     |
 | Sadehousut                             |                  |                  |               |             |     |
-| Sadesuojat kenkiin                     |                  |                  |               |             |     |
 | Pyöräilytakki / pitkähihainen ajopaita |                  |                  |               |             |     |
 | Irtolankeet                            |                  |                  |               |             |     |
 | Käsineet                               |                  |                  |               |             |     |
@@ -28,7 +27,6 @@
 | Housut              |                  |                  |               |             |     |
 | Uikkarit            |                  |                  |               |             |     |
 | Lyhythihainen paita |                  |                  |               |             |     |
-| Pitkähihainen paita |                  |                  |               |             |     |
 | Sukat               |                  |                  |               |             |     |
 | Varasukat           |                  |                  |               |             |     |
 | Lämpimät sukat      |                  |                  |               |             |     |
@@ -41,8 +39,6 @@
 | Kuusiokoloavainarja                 |                  |                  |               |             |     |
 | Ketjutyökalu                        |                  |                  |               |             |     |
 | Rengasraudat                        |                  |                  |               |             |     |
-| Pinna-avain                         |                  |                  |               |             |     |
-| Varapinnat                          |                  |                  |               |             |     |
 | Nippuside                           |                  |                  |               |             |     |
 | Jesari                              |                  |                  |               |             |     |
 | Sähköteippi                         |                  |                  |               |             |     |
@@ -62,16 +58,17 @@
 | Lukitusvaijeri                      |                  |                  |               |             |     |
 ### Elektroniikka
 
-| Mitä                  | Vasen sivulaukku | Oikea sivulaukku | Tarakkalaukku | Runkolaukku | Muu |
-| --------------------- | ---------------- | ---------------- | ------------- | ----------- | --- |
-| Puhelin               |                  |                  |               |             |     |
-| Kuulokkeet            |                  |                  |               |             |     |
-| Vara-akku             |                  |                  |               |             |     |
-| Latauskaapelit        |                  |                  |               |             |     |
-| Teholaturi+varalaturi |                  |                  |               |             |     |
-| Pyörätietokone        |                  |                  |               |             |     |
-| Valot                 |                  |                  |               |             |     |
-| Leirintäalueadapteri  |                  |                  |               |             |     |
+| Mitä                                            | Vasen sivulaukku | Oikea sivulaukku | Tarakkalaukku | Runkolaukku | Muu |
+| ----------------------------------------------- | ---------------- | ---------------- | ------------- | ----------- | --- |
+| Puhelin                                         |                  |                  |               |             |     |
+| Kuulokkeet                                      |                  |                  |               |             |     |
+| Vara-akku                                       |                  |                  |               |             |     |
+| Latauskaapelit                                  |                  |                  |               |             |     |
+| Teholaturi+varalaturi                           |                  |                  |               |             |     |
+| Pyörätietokone                                  |                  |                  |               |             |     |
+| Valot                                           |                  |                  |               |             |     |
+| Leirintäalueadapteri                            |                  |                  |               |             |     |
+| kellon, puhelimen valojen ja tietsarin kaapelit |                  |                  |               |             |     |
 
 ### Yöpyminen
 | Mitä               | Vasen sivulaukku | Oikea sivulaukku | Tarakkalaukku | Runkolaukku | Muu |
@@ -79,11 +76,13 @@
 | Makuualusta        |                  |                  |               |             |     |
 | Makuupussi         |                  |                  |               |             |     |
 | Puhallettava tyyny |                  |                  |               |             |     |
-| Kerrasto           |                  |                  |               |             |     |
+| Kerrasto/Lakana    |                  |                  |               |             |     |
 | Pipo               |                  |                  |               |             |     |
 | Majoite            |                  |                  |               |             |     |
 | Paracord           |                  |                  |               |             |     |
-| Retkituoli         |                  |                  |               |             |     |
+| Silmälappu         |                  |                  |               |             |     |
+| korvatulpat        |                  |                  |               |             |     |
+| Matkatyyny         |                  |                  |               |             |     |
 ### Ruoka ja juoma
 | Mitä              | Vasen sivulaukku | Oikea sivulaukku | Tarakkalaukku | Runkolaukku | Muu |
 | ----------------- | ---------------- | ---------------- | ------------- | ----------- | --- |
@@ -119,5 +118,6 @@
 | Paskalapio        |                  |                  |               |             |     |
 | Silmälasipyyhkeet |                  |                  |               |             |     |
 | WC-paperirulla    |                  |                  |               |             |     |
+| Linola            |                  |                  |               |             |     |
 ## Dokumentit
 Passi
