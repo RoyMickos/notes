@@ -67,6 +67,7 @@
 | Latauskaapelit |                  |                  |               |             |     |
 | Laturi         |                  |                  |               |             |     |
 | Pyörätietokone |                  |                  |               |             |     |
+| valot/ tutka   |                  |                  |               |             |     |
 
 ### Yöpyminen
 | Mitä               | Vasen sivulaukku | Oikea sivulaukku | Tarakkalaukku | Runkolaukku | Muu |
