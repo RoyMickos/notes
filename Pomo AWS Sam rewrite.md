@@ -126,11 +126,16 @@ Decided to start working on the `server` after all, because you can't verify the
 
 Now got to the poiint where made a dry run of the template with all looking ok. Next up is to study the aws amplify static hosting and create manually the endpoint and s3 bucket. Then, one can feed that into the template for production.
 
-Deployment: fixed several issues, although Claude made me make errors in the template. Anyways, the latest attempt crashed when creating the AWS:ApiGateway:RestApi: "Unable to put integration response on OPTIONS for resource at path '/notes": Invalied mapping expression specified: <frontendurl here>. No deployment as of yet, although frontend was ok. Once the backend deployment goes ok, you need to redeploy bundle with actual backend address. Also, is it possible to serve static frontend in aws? (No? Solutions from chatgpt look like a hack)
+Deployment: fixed several issues, although Claude made me make errors in the template. Anyways, the latest attempt crashed when creating the AWS:ApiGateway:RestApi: "Unable to put integration response on OPTIONS for resource at path '/notes": Invalied mapping expression specified:  [frontendurl here](). No deployment as of yet, although frontend was ok. Once the backend deployment goes ok, you need to redeploy bundle with actual backend address. Also, is it possible to serve static frontend in aws? (No? Solutions from chatgpt look like a hack)
 
 Now stuck on situation where OPTIONS call gets "authenticated" on APIGW. Chatgpt has stuff about this, which need to be implemented and tested. Pretty weird that this needs to be done, and SAM does not take care of this automatically.
 
 "Invalid grant" virhe refresh tokenin **käytössä**?
+
+## Restart
+Started with installing yarn and then the client packages.
+For backend, did docker-compose installation.
+For infra, verified that aws stuff still works.
 
 ---
 ## Code dumpster
