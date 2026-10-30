@@ -1,1 +1,4 @@
 .obsidian
+raw/
+.qmd/*.sqlite*
+node_modules/

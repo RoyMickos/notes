@@ -1,0 +1,25 @@
+global_context: "Personal knowledge base of a software developer: cloud architecture, web security, developer tooling, AI tools and personal projects."
+collections:
+  notes:
+    path: .
+    pattern: "**/*.md"
+    ignore:
+      - "raw/**"
+      - "journal/**"
+      - "recipes/**"
+      - "templates/**"
+      - "Excalidraw/**"
+      - "Clippings/**"
+      - ".agents/**"
+      - "biketravel/**"
+      - "_log.md"
+      - "AGENTS.md"
+      - "0 Master index.md"
+    context:
+      "/": "Knowledge base articles"
+      "/prj": "Personal project notes"
+      "/references": "Reference material"
+models:
+  embed: hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf
+  generate: hf:tobil/qmd-query-expansion-1.7B-gguf/qmd-query-expansion-1.7B-q4_k_m.gguf
+  rerank: hf:ggml-org/Qwen3-Reranker-0.6B-Q8_0-GGUF/qwen3-reranker-0.6b-q8_0.gguf

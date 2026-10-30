@@ -1,0 +1,11 @@
+{
+  "name": "journal-tools",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "dependencies": {
+    "@tobilu/qmd": "^2.8.3"
+  }
+}
