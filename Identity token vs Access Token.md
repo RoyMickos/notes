@@ -1,2 +1,4 @@
 An identity token defines an identity, a person, who is using an app.
 An access token defines an identity, but in addition it defines OAuth _scopes_ . Thus when an endpoint receives an access token, it will in addition to veirfying the token itself check that the scope matches that defined for the API path. Note that the scope might also be a role.
+
+An access token is meant for one audience and should not be passed on to other systems. When a backend has to call another service as the user, it gets a separate token for that service instead. For an example with Microsoft Entra ID and Salesforce, see [[Salesforce delegated authentication]].

@@ -31,6 +31,9 @@ I could not get my psql to read pg_catalog schema. The easiest way is to try to 
 
 It seems that not all tables are reliably listed; attempting to drop role again will bing up any tables that may have been missed in the first listing.
 
+## Advisory locks
+Application-defined locks for coordinating work across app instances that share the database, e.g. refreshing a cached token only once. See [[Postgres advisory locks]].
+
 ---
 ## References
 1. 
