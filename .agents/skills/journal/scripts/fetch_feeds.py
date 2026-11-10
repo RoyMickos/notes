@@ -10,7 +10,7 @@
 """Fetch RSS/Atom feeds, download the linked articles and emit JSON for an LLM.
 
 Usage:
-    uv run journal/fetch_feeds.py [--since 7d] [--max-per-feed 20] [-o out.json]
+    uv run .agents/skills/journal/scripts/fetch_feeds.py [--since 7d] [--max-per-feed 20] [-o out.json]
 """
 
 from __future__ import annotations
@@ -29,9 +29,7 @@ import feedparser
 import httpx
 import trafilatura
 
-DEFAULT_SOURCES = (
-    Path(__file__).resolve().parent.parent / ".agents" / "skills" / "journal" / "SOURCES.md"
-)
+DEFAULT_SOURCES = Path(__file__).resolve().parent.parent / "SOURCES.md"
 USER_AGENT = "notes-journal-fetcher/1.0 (personal feed reader)"
 MIN_ARTICLE_WORDS = 50
 

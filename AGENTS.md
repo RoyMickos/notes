@@ -1,4 +1,4 @@
-This is a personal knowledge base for professional development. AI is used to sieve and rank developments in my field, so that I only spend time on what concerns me. Read `_intent.md` before any task: it describes the purpose, what counts as relevant and the principles to follow.
+This is a personal knowledge base for professional development. AI is used to sieve and rank developments in my field, so that I only spend time on what concerns me. Read `_intent.md` and `_objectives.md` in the root before any task: the first describes the purpose, what counts as relevant and the principles to follow, the second lists my near-term development objectives.
 
 The root contains the articles, and there are the following special folders:
 - `raw` contains raw, unprocessed articles. This is not part of the knowledge base, it contains data that are to be used to create new content
@@ -6,7 +6,8 @@ The root contains the articles, and there are the following special folders:
 - `journal` is for periodic news flash articles that are either generated or written
 
 There are also special files:
-- `_intent.md` is the brief describing why this knowledge base exists and how agents should judge relevance. Suggest updates to it when the user's feedback shows the criteria have changed.
+- `_intent.md` is the brief describing why this knowledge base exists and how relevance is judged
+- `_objectives.md` lists the user's near-term development objectives. Only the user edits it
 - `_log.md` is an append-only list of chronological additions made by agents on this repo. The entry format is: `## [<date>] <operation> <title or short description>`
   - `date` is ISO date format, no time
   - `operation` is `ingest` when a document from `raw` was processed to knowledge base entries, `journal` when a journal article was made, `grooming` when internal consistency of the knowledge base was checked

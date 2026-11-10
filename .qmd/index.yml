@@ -12,7 +12,7 @@ collections:
       - "Clippings/**"
       - ".agents/**"
       - "biketravel/**"
-      - "_log.md"
+      - "_*.md"
       - "AGENTS.md"
       - "0 Master index.md"
     context:

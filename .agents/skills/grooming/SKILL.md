@@ -1,3 +1,3 @@
 Scan through the knowledge base for things that need to be worked on.
-Look for: contradictions between pages, stale claims that newer sources have superseded, orphan pages with no inbound links, important concepts mentioned but lacking their own page, missing cross-references, data gaps that could be filled with a web search.
+Look for: contradictions between pages, stale claims that newer sources have superseded, orphan pages with no inbound links, important concepts mentioned but lacking their own page, missing cross-references, data gaps that could be filled with a web search. Also compare the knowledge base against `_objectives.md`: report objectives with little or no coverage in the notes, and objectives that look done or stale (for example a passed deadline). Do not edit `_objectives.md`; it belongs to the user.
 Produce a report for the user, but do not make any changes. Discuss findings with the user and only make edits when explicitly asked to do so.

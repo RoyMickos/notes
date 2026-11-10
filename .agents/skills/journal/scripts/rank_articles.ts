@@ -3,16 +3,16 @@
  * Rank articles produced by fetch_feeds.py against the knowledge base using qmd.
  *
  * Usage:
- *   uv run journal/fetch_feeds.py | node journal/rank_articles.ts [--top 10] [-o ranked.json]
- *   node journal/rank_articles.ts feeds.json
+ *   uv run .agents/skills/journal/scripts/fetch_feeds.py | node .agents/skills/journal/scripts/rank_articles.ts [--top 10] [-o ranked.json]
+ *   node .agents/skills/journal/scripts/rank_articles.ts feeds.json
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { createStore, type HybridQueryResult } from "@tobilu/qmd";
 
-const ROOT = dirname(import.meta.dirname);
+const ROOT = join(import.meta.dirname, "..", "..", "..", "..");
 const CONFIG_PATH = join(ROOT, ".qmd", "index.yml");
 const DB_PATH = join(ROOT, ".qmd", "index.sqlite");
 
@@ -36,7 +36,7 @@ type KbMatch = { path: string; title: string; score: number; similarity: number;
 
 const HELP = `Rank fetched feed articles by relevance to the knowledge base.
 
-Usage: node journal/rank_articles.ts [input.json] [options]
+Usage: node .agents/skills/journal/scripts/rank_articles.ts [input.json] [options]
 Reads fetch_feeds.py output from the file or stdin and writes ranked JSON.
 
 Options:
