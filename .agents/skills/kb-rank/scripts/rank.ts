@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 /**
- * Rank articles produced by fetch_feeds.py against the knowledge base using qmd.
+ * Rank items against the knowledge base using qmd: articles produced by
+ * fetch_feeds.py, or Markdown notes such as the video screener's output.
  *
  * Usage:
- *   uv run .agents/skills/journal/scripts/fetch_feeds.py | node .agents/skills/journal/scripts/rank_articles.ts [--top 10] [-o ranked.json]
- *   node .agents/skills/journal/scripts/rank_articles.ts feeds.json
+ *   uv run .agents/skills/journal/scripts/fetch_feeds.py | node .agents/skills/kb-rank/scripts/rank.ts [--top 10] [-o ranked.json]
+ *   node .agents/skills/kb-rank/scripts/rank.ts feeds.json
+ *   node .agents/skills/kb-rank/scripts/rank.ts raw/video/2026-11-10/ [more.md ...]
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { basename, join } from "node:path";
 import { parseArgs } from "node:util";
 import { createStore, type HybridQueryResult } from "@tobilu/qmd";
 
@@ -17,7 +19,6 @@ const CONFIG_PATH = join(ROOT, ".qmd", "index.yml");
 const DB_PATH = join(ROOT, ".qmd", "index.sqlite");
 
 type FeedItem = {
-  feed: string;
   title: string | null;
   url: string | null;
   summary: string | null;
@@ -26,18 +27,18 @@ type FeedItem = {
 };
 
 type FeedDocument = {
-  generated_at: string;
-  since: string;
-  feeds: unknown[];
   items: FeedItem[];
+  [key: string]: unknown;
 };
 
 type KbMatch = { path: string; title: string; score: number; similarity: number; rerank: number | null };
 
-const HELP = `Rank fetched feed articles by relevance to the knowledge base.
+const HELP = `Rank articles or notes by relevance to the knowledge base.
 
-Usage: node .agents/skills/journal/scripts/rank_articles.ts [input.json] [options]
-Reads fetch_feeds.py output from the file or stdin and writes ranked JSON.
+Usage: node .agents/skills/kb-rank/scripts/rank.ts [input.json | note.md | dir ...] [options]
+Reads fetch_feeds.py output from the JSON file or stdin, or Markdown notes
+(files, or the *.md files directly in a directory, except report.md), and
+writes ranked JSON.
 
 Options:
   --top N                  keep full content for the N highest ranked items (default 10)
@@ -93,8 +94,43 @@ function round(n: number): number {
   return Math.round(n * 1000) / 1000;
 }
 
-async function readInput(file: string | undefined): Promise<FeedDocument> {
-  if (file) return JSON.parse(readFileSync(file, "utf-8"));
+// Title from the frontmatter or first heading, summary from a "## Summary"
+// section, content from the body without the frontmatter.
+function readNote(path: string): FeedItem {
+  const text = readFileSync(path, "utf-8");
+  const frontmatter = text.match(/^---\n([\s\S]*?)\n---\n/);
+  const body = frontmatter ? text.slice(frontmatter[0].length) : text;
+  const rawTitle = frontmatter?.[1].match(/^title:\s*(.+)$/m)?.[1].trim();
+  let title = rawTitle ?? body.match(/^# (.+)$/m)?.[1].trim() ?? basename(path, ".md");
+  if (/^["']/.test(title)) {
+    try {
+      title = JSON.parse(title);
+    } catch {
+      title = title.replace(/^(["'])(.*)\1$/, "$2");
+    }
+  }
+  const summary = body.split(/^## Summary\s*$/m)[1]?.split(/^#{1,6} /m)[0].trim() || null;
+  return { path, title, url: frontmatter?.[1].match(/^url:\s*(\S+)$/m)?.[1] ?? null, summary, content: body };
+}
+
+function notePaths(paths: string[]): string[] {
+  return paths.flatMap((p) =>
+    statSync(p).isDirectory()
+      ? readdirSync(p)
+          .filter((f) => f.endsWith(".md") && f !== "report.md")
+          .sort()
+          .map((f) => join(p, f))
+      : [p],
+  );
+}
+
+async function readInput(files: string[]): Promise<FeedDocument> {
+  const isNotes = (p: string) => p.endsWith(".md") || statSync(p).isDirectory();
+  if (files.length > 0 && files.every(isNotes)) {
+    return { generated_at: new Date().toISOString(), source: "markdown", items: notePaths(files).map(readNote) };
+  }
+  if (files.length > 1) throw new Error("Give one JSON file, or Markdown files and directories.");
+  if (files[0]) return JSON.parse(readFileSync(files[0], "utf-8"));
   const chunks: Buffer[] = [];
   for await (const chunk of process.stdin) chunks.push(chunk as Buffer);
   return JSON.parse(Buffer.concat(chunks).toString("utf-8"));
@@ -129,7 +165,7 @@ async function main(): Promise<void> {
   const leadWords = Number(values["lead-words"]);
   const excerptWords = Number(values["excerpt-words"]);
 
-  const input = await readInput(positionals[0]);
+  const input = await readInput(positionals);
 
   // Collection paths in .qmd/index.yml are relative to the repository root.
   process.chdir(ROOT);

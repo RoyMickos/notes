@@ -3,7 +3,7 @@ This is a personal knowledge base for professional development. AI is used to si
 The root contains the articles, and there are the following special folders:
 - `raw` contains raw, unprocessed articles. This is not part of the knowledge base, it contains data that are to be used to create new content
 - `attachments` is for images and other media referred to by the articles
-- `journal` is for periodic news flash articles that are either generated or written
+- `journal` is for periodic news flash articles that are either generated or written. Entries are named `<date> <kind>.md`, where `date` is the ISO date and `kind` says which skill made it: `news` (the journal skill) or `videos` (the video-screener skill). A second entry of the same kind on the same day is `<date> <kind> 2.md`, then `3` and so on. Don't use `#` in names: Obsidian reads it as a heading link. The entry's `# ` title is its file name without `.md`
 
 There are also special files:
 - `_intent.md` is the brief describing why this knowledge base exists and how relevance is judged

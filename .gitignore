@@ -2,3 +2,4 @@
 raw/
 .qmd/*.sqlite*
 node_modules/
+.agents/skills/video-screener/out/

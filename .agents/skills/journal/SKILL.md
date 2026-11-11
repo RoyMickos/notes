@@ -2,8 +2,8 @@ You are a news curator for a senior software developer.
 - Read `_intent.md` in the repository root: the brief describing why this knowledge base exists and how agents should judge relevance. Suggest updates to it when the user's feedback shows the criteria have changed.
 - Read `_objectives.md` in the repository root for the development objectives of the user.
 
-Procedure: you fetch the sources as described below, and choose the most important news stories to be presented as a journal entry in the `journal` folder. You write a markdown document with the title `<date> news`, where `<date>` is the current date in ISO format.
-You first find out when the last entry was written, and then fetch the RSS sources from that date until today, but no more than 14 days back. Pass that window to `--since` (for example `--since 5d`); the `7d` in the commands below is only an example.
+Procedure: you fetch the sources as described below, and choose the most important news stories to be presented as a journal entry in the `journal` folder. You write a markdown document named by the journal convention in `AGENTS.md` with the kind `news`: `<date> news.md` with the title `<date> news`, where `<date>` is the current date in ISO format, or `<date> news 2.md` (and so on) if a news entry for today already exists.
+You first find out when the last news entry was written, from the date in the name of the newest `journal/<date> news.md` or `journal/<date> news <n>.md` file. Skip other kinds of entries, such as `<date> videos.md`: they don't cover the feeds. Then fetch the RSS sources from that date until today, but no more than 14 days back. Pass that window to `--since` (for example `--since 5d`); the `7d` in the commands below is only an example.
 
 When deciding what to recommend, use two aspects:
 1) **Objectives.** Check whether the material advances one of the development objectives. These are topics the user wants in the knowledge base. Rank them highest, as long as the article's specific content is not already in the notes. Existing notes on the same topic do not lower the priority. The ranking tool does not know about the objectives, so judge this yourself, also for items with a low `relevance`.
@@ -39,23 +39,10 @@ Output shape:
 
 ## Ranking against the knowledge base
 
-Rank the fetched articles by how closely they relate to the knowledge base, so that only the most relevant ones need to be read in full:
+Rank the fetched articles against the existing notes with the `kb-rank` skill (`.agents/skills/kb-rank/SKILL.md`). Read it for the options and for how to interpret the scores. Typically:
 
 ```sh
-uv run .agents/skills/journal/scripts/fetch_feeds.py --since 7d | node .agents/skills/journal/scripts/rank_articles.ts --top 10 -o "$TMPDIR/ranked.json"
+uv run .agents/skills/journal/scripts/fetch_feeds.py --since 7d | node .agents/skills/kb-rank/scripts/rank.ts --top 10 -o "$TMPDIR/ranked.json"
 ```
 
-The ranking runs locally with [qmd](https://github.com/tobi/qmd) and uses no LLM tokens. The qmd index lives in `.qmd/` (`index.yml` defines which notes are indexed; the SQLite index is not committed). The script re-indexes changed notes before ranking. On first run qmd downloads its local models (~1 GB) to `~/.cache/qmd/models/`. If `scripts/node_modules` in this folder is missing, run `npm install` in `.agents/skills/journal/scripts/` first.
-
-Useful options:
-- `--top N` keep full `content` for the N highest ranked items (default 10); the rest get a short `excerpt` instead
-- `--min-score X` drop items with relevance below X
-- `--covered-threshold X` relevance at which an item is flagged `possibly_covered` (default 0.75)
-- `--no-rerank` faster, vector similarity only (covered threshold then defaults to 0.65)
-
-The output is the fetch JSON with a `ranking` block added and each item extended with:
-- `relevance`: 0–1, the best match's score. Roughly: above 0.75 the knowledge base already covers the topic, 0.4–0.75 clearly related, 0.2–0.4 loosely related, below 0.2 unrelated.
-- `possibly_covered`: true when the article closely matches an existing note. These items are sorted last; they may still contain updates worth merging into the matching note, but should not be presented as new topics.
-- `kb_matches[]`: the closest notes (`path`, `title`, `score`, `similarity`, `rerank`). Use these as the candidate connections when discussing an article with the user or ingesting it.
-
-Items are sorted with new material first, by relevance. Relevance measures overlap with existing interests, not quality: use it to prioritise reading, and still skim the titles of low-ranked items for interesting new topics.
+Only the highest ranked items keep their full `content`. Items flagged `possibly_covered` should not be presented as new topics, and `kb_matches` gives the notes to link to.
