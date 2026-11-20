@@ -4,3 +4,4 @@
 ## [2026-10-30] ingest Postgres advisory locks
 ## [2026-11-03] journal 2026-11-03 news
 ## [2026-11-10] journal 2026-11-10 videos
+## [2026-11-13] journal 2026-11-13 news
